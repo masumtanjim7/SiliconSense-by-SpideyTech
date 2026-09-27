@@ -9,10 +9,13 @@ app/core/config.py
 app/core/logging.py
 app/db/__init__.py
 app/db/base.py
+app/db/models.py
+app/db/seed.py
 app/db/session.py
 siliconsense_api.egg-info/PKG-INFO
 siliconsense_api.egg-info/SOURCES.txt
 siliconsense_api.egg-info/dependency_links.txt
 siliconsense_api.egg-info/requires.txt
 siliconsense_api.egg-info/top_level.txt
+tests/test_db_schema.py
 tests/test_health.py
