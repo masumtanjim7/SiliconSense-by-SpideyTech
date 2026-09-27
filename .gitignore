@@ -1,4 +1,4 @@
-# Environment & Secrets
+﻿# Environment & Secrets
 .env
 .env.*
 !.env.example
@@ -20,14 +20,10 @@ venv/
 .ruff_cache/
 .mypy_cache/
 
-# Raw Benchmark Snapshots (keep fixtures & manifests, ignore heavy dumps)
+# Raw Benchmark Snapshots (ignore heavy dumps in data/raw, keep fixtures & manifests)
 data/raw/
-*.csv
-*.json
-!data/fixtures/**
-!data/manifests/**
-!**/package.json
-!**/tsconfig*.json
+data/*.csv
+data/*.json
 
 # OS / IDE
 .DS_Store
