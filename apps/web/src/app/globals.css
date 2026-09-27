@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    color-scheme: dark;
+}
+
+body {
+    background-color: #070B16;
+    color: #F5F7FF;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    min-width: 320px;
+}
+
+@layer utilities {
+    .glass-panel {
+        background-color: rgba(18, 27, 48, 0.62);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(18px);
+    }
+
+    @media (prefers-reduced-transparency: reduce) {
+        .glass-panel {
+            background-color: #10182B;
+            backdrop-filter: none;
+        }
+    }
+}
