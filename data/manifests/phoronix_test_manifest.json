@@ -1,0 +1,65 @@
+{
+    "manifest_version": "1.0.0",
+    "profiles": [
+        {
+            "internal_metric_key": "cpu_single",
+            "pts_identifier": "pts/pybench",
+            "approved_version_prefix": "1.1.",
+            "subsystem": "CPU",
+            "unit": "ms",
+            "direction": "lower_is_better",
+            "license_spdx": "PSF-2.0",
+            "license_review_status": "approved",
+            "environment_requirements": {
+                "require_os_recorded": true,
+                "min_replicates": 2
+            },
+            "comparability_notes": "Total average test time in milliseconds; lower is better. Must match pts/pybench 1.1.x."
+        },
+        {
+            "internal_metric_key": "ram_bandwidth_capacity",
+            "pts_identifier": "pts/ramspeed",
+            "approved_version_prefix": "1.4.",
+            "subsystem": "RAM",
+            "unit": "MB_per_sec",
+            "direction": "higher_is_better",
+            "license_spdx": "BSD-3-Clause",
+            "license_review_status": "approved",
+            "environment_requirements": {
+                "require_os_recorded": true,
+                "min_replicates": 2
+            },
+            "comparability_notes": "Average integer/float memory throughput in MB/s; higher is better."
+        },
+        {
+            "internal_metric_key": "storage_throughput",
+            "pts_identifier": "pts/fio",
+            "approved_version_prefix": "2.1.",
+            "subsystem": "STORAGE",
+            "unit": "MB_per_sec",
+            "direction": "higher_is_better",
+            "license_spdx": "GPL-2.0-only",
+            "license_review_status": "approved",
+            "environment_requirements": {
+                "require_os_recorded": true,
+                "min_replicates": 2
+            },
+            "comparability_notes": "Sequential Read 1MB block throughput in MB/s; higher is better."
+        },
+        {
+            "internal_metric_key": "gpu_render_compute",
+            "pts_identifier": "pts/vkpeak",
+            "approved_version_prefix": "1.2.",
+            "subsystem": "GPU",
+            "unit": "GFLOPS",
+            "direction": "higher_is_better",
+            "license_spdx": "MIT",
+            "license_review_status": "pending_human_review",
+            "environment_requirements": {
+                "require_os_recorded": true,
+                "min_replicates": 2
+            },
+            "comparability_notes": "Blocked from production ingestion until human license review is completed."
+        }
+    ]
+}

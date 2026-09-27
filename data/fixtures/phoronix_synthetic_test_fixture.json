@@ -1,0 +1,125 @@
+{
+    "fixture_notice": "SYNTHETIC TEST FIXTURE — DO NOT LOAD INTO PRODUCTION BENCHMARK TABLES",
+    "is_synthetic_test_fixture": true,
+    "dataset_version": "ds-2026-09-pts-fixture",
+    "source_code": "phoronix_pts_local",
+    "retrieved_at": "2026-09-27T13:00:00Z",
+    "runs": [
+        {
+            "run_id": "pts-lab-sys-01",
+            "tested_at": "2026-09-25T10:00:00Z",
+            "environment": {
+                "os": "Ubuntu 24.04 LTS",
+                "kernel": "6.8.0-45-generic",
+                "pts_version": "10.8.4",
+                "cpu_reported": "AMD Ryzen 7 7800X3D 8-Core Processor",
+                "gpu_reported": "NVIDIA GeForce RTX 4070 SUPER",
+                "ram_reported": "32GB DDR5-6000 CL30",
+                "storage_reported": "Samsung SSD 990 PRO 2TB"
+            },
+            "results": [
+                {
+                    "pts_identifier": "pts/pybench",
+                    "test_version": "1.1.3",
+                    "subsystem": "CPU",
+                    "unit": "ms",
+                    "replicates": [
+                        482.0,
+                        480.0,
+                        484.0
+                    ]
+                },
+                {
+                    "pts_identifier": "pts/ramspeed",
+                    "test_version": "1.4.3",
+                    "subsystem": "RAM",
+                    "unit": "MB_per_sec",
+                    "replicates": [
+                        64200.0,
+                        64500.0,
+                        64100.0
+                    ]
+                },
+                {
+                    "pts_identifier": "pts/fio",
+                    "test_version": "2.1.0",
+                    "subsystem": "STORAGE",
+                    "unit": "MB_per_sec",
+                    "replicates": [
+                        7150.0,
+                        7200.0,
+                        7180.0
+                    ]
+                }
+            ]
+        },
+        {
+            "run_id": "pts-lab-sys-02",
+            "tested_at": "2026-09-26T14:00:00Z",
+            "environment": {
+                "os": "Ubuntu 24.04 LTS",
+                "kernel": "6.8.0-45-generic",
+                "pts_version": "10.8.4",
+                "cpu_reported": "AMD Ryzen 5 5600X 6-Core Processor",
+                "gpu_reported": "NVIDIA GeForce RTX 3060",
+                "ram_reported": "16GB DDR4-3200 CL16",
+                "storage_reported": "Crucial MX500 1TB SATA"
+            },
+            "results": [
+                {
+                    "pts_identifier": "pts/pybench",
+                    "test_version": "1.1.3",
+                    "subsystem": "CPU",
+                    "unit": "ms",
+                    "replicates": [
+                        690.0,
+                        695.0,
+                        692.0
+                    ]
+                },
+                {
+                    "pts_identifier": "pts/ramspeed",
+                    "test_version": "1.4.3",
+                    "subsystem": "RAM",
+                    "unit": "MB_per_sec",
+                    "replicates": [
+                        28400.0,
+                        28600.0,
+                        28500.0
+                    ]
+                },
+                {
+                    "pts_identifier": "pts/fio",
+                    "test_version": "2.1.0",
+                    "subsystem": "STORAGE",
+                    "unit": "MB_per_sec",
+                    "replicates": [
+                        540.0,
+                        545.0,
+                        542.0
+                    ]
+                },
+                {
+                    "pts_identifier": "pts/fio",
+                    "test_version": "1.8.0",
+                    "subsystem": "STORAGE",
+                    "unit": "MB_per_sec",
+                    "replicates": [
+                        510.0,
+                        515.0
+                    ]
+                },
+                {
+                    "pts_identifier": "pts/vkpeak",
+                    "test_version": "1.2.0",
+                    "subsystem": "GPU",
+                    "unit": "GFLOPS",
+                    "replicates": [
+                        12500.0,
+                        12550.0
+                    ]
+                }
+            ]
+        }
+    ]
+}
