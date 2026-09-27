@@ -1,0 +1,23 @@
+{
+    "schema_version": "1.0.0",
+    "sources": [
+        {
+            "code": "blender_opendata",
+            "source_name": "Blender Open Data",
+            "benchmark_version": "4.2",
+            "source_url": "https://opendata.blender.org/",
+            "license_spdx": "CC0-1.0",
+            "license_notes": "Public domain CC0 daily snapshot and query exports from opendata.blender.org.",
+            "is_approved": true
+        },
+        {
+            "code": "phoronix_pts_local",
+            "source_name": "SiliconSense Reproducible PTS Lab",
+            "benchmark_version": "10.8.4",
+            "source_url": "https://github.com/phoronix-test-suite/phoronix-test-suite",
+            "license_spdx": "GPL-3.0-or-later",
+            "license_notes": "Authorized local benchmark runs executed via Phoronix Test Suite.",
+            "is_approved": true
+        }
+    ]
+}

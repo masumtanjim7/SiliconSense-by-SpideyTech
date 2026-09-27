@@ -1,0 +1,119 @@
+{
+    "dataset_version": "ds-2026-09-r1",
+    "source_code": "blender_opendata",
+    "target_blender_version": "4.2",
+    "retrieved_at": "2026-09-27T12:00:00Z",
+    "license_spdx": "CC0-1.0",
+    "records": [
+        {
+            "device_name": "AMD Ryzen 7 7800X3D 8-Core Processor",
+            "device_type": "CPU",
+            "compute_type": "CPU",
+            "os": "Linux",
+            "blender_version": "4.2.1",
+            "median_score": 258.4,
+            "sample_count": 48,
+            "tested_at": "2026-09-20T10:00:00Z"
+        },
+        {
+            "device_name": "AMD Ryzen 7 7800X3D",
+            "device_type": "CPU",
+            "compute_type": "CPU",
+            "os": "Windows",
+            "blender_version": "4.2.0",
+            "median_score": 254.0,
+            "sample_count": 62,
+            "tested_at": "2026-09-21T10:00:00Z"
+        },
+        {
+            "device_name": "AMD Ryzen 9 7950X 16-Core Processor",
+            "device_type": "CPU",
+            "compute_type": "CPU",
+            "os": "Linux",
+            "blender_version": "4.2.1",
+            "median_score": 562.8,
+            "sample_count": 55,
+            "tested_at": "2026-09-20T11:00:00Z"
+        },
+        {
+            "device_name": "Intel Core i5-13600K",
+            "device_type": "CPU",
+            "compute_type": "CPU",
+            "os": "Windows",
+            "blender_version": "4.2.1",
+            "median_score": 318.5,
+            "sample_count": 74,
+            "tested_at": "2026-09-20T12:00:00Z"
+        },
+        {
+            "device_name": "AMD Ryzen 5 5600X 6-Core Processor",
+            "device_type": "CPU",
+            "compute_type": "CPU",
+            "os": "Windows",
+            "blender_version": "4.2.1",
+            "median_score": 148.2,
+            "sample_count": 90,
+            "tested_at": "2026-09-20T12:30:00Z"
+        },
+        {
+            "device_name": "NVIDIA GeForce RTX 4090",
+            "device_type": "GPU",
+            "compute_type": "OPTIX",
+            "os": "Windows",
+            "blender_version": "4.2.1",
+            "median_score": 11250.5,
+            "sample_count": 120,
+            "tested_at": "2026-09-22T09:00:00Z"
+        },
+        {
+            "device_name": "NVIDIA GeForce RTX 4070 SUPER",
+            "device_type": "GPU",
+            "compute_type": "OPTIX",
+            "os": "Windows",
+            "blender_version": "4.2.1",
+            "median_score": 6320.0,
+            "sample_count": 85,
+            "tested_at": "2026-09-22T10:00:00Z"
+        },
+        {
+            "device_name": "AMD Radeon RX 7800 XT",
+            "device_type": "GPU",
+            "compute_type": "HIP",
+            "os": "Windows",
+            "blender_version": "4.2.1",
+            "median_score": 3480.0,
+            "sample_count": 40,
+            "tested_at": "2026-09-22T11:00:00Z"
+        },
+        {
+            "device_name": "NVIDIA GeForce RTX 3060",
+            "device_type": "GPU",
+            "compute_type": "OPTIX",
+            "os": "Windows",
+            "blender_version": "4.2.1",
+            "median_score": 2410.0,
+            "sample_count": 110,
+            "tested_at": "2026-09-22T12:00:00Z"
+        },
+        {
+            "device_name": "Unknown Engineering Sample GPU X99",
+            "device_type": "GPU",
+            "compute_type": "OPTIX",
+            "os": "Linux",
+            "blender_version": "4.2.1",
+            "median_score": 4100.0,
+            "sample_count": 2,
+            "tested_at": "2026-09-23T08:00:00Z"
+        },
+        {
+            "device_name": "NVIDIA GeForce RTX 4070 SUPER",
+            "device_type": "GPU",
+            "compute_type": "OPTIX",
+            "os": "Windows",
+            "blender_version": "3.6.0",
+            "median_score": 5800.0,
+            "sample_count": 30,
+            "tested_at": "2025-11-10T08:00:00Z"
+        }
+    ]
+}
