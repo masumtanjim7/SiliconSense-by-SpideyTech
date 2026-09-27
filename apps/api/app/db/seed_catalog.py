@@ -1,4 +1,4 @@
-from datetime import date, datetime, timezone
+from datetime import UTC, date, datetime
 
 from sqlalchemy import select
 from sqlalchemy.orm import Session
@@ -194,7 +194,7 @@ def seed_curated_hardware_catalog(db: Session) -> None:
                     storage_type=str(specs["storage_type"]) if "storage_type" in specs else None,
                     specs_json=specs,
                     source_url="https://siliconsense.spideytech.dev/catalog/curated-v1",
-                    last_verified_at=datetime.now(timezone.utc),
+                    last_verified_at=datetime.now(UTC),
                 )
             )
 

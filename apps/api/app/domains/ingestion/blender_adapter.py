@@ -1,7 +1,7 @@
 import hashlib
 import json
 from collections import defaultdict
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 import numpy as np
@@ -184,7 +184,7 @@ def ingest_blender_snapshot_file(db: Session, snapshot_path: Path) -> IngestionS
     run.rows_processed = rows_processed
     run.rows_inserted = rows_inserted
     run.rows_quarantined = rows_quarantined
-    run.finished_at = datetime.now(timezone.utc)
+    run.finished_at = datetime.now(UTC)
     db.commit()
 
     aggregated_medians = {
