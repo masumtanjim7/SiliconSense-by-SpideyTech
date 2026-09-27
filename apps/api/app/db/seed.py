@@ -154,9 +154,7 @@ def seed_reference_configuration(db: Session) -> None:
             )
         )
 
-    score_v1 = db.scalar(
-        select(ScoringVersion).where(ScoringVersion.version_code == "score-v1.0")
-    )
+    score_v1 = db.scalar(select(ScoringVersion).where(ScoringVersion.version_code == "score-v1.0"))
     if score_v1 is None:
         db.add(
             ScoringVersion(

@@ -2,7 +2,7 @@ from datetime import date, datetime
 from typing import Any
 
 from sqlalchemy import (
-     JSON,
+    JSON,
     Boolean,
     CheckConstraint,
     Date,
@@ -136,9 +136,7 @@ class BenchmarkMetricDefinition(Base):
     display_name: Mapped[str] = mapped_column(String(128), nullable=False)
     subsystem: Mapped[str] = mapped_column(String(32), nullable=False, index=True)
     unit: Mapped[str] = mapped_column(String(64), nullable=False)
-    direction: Mapped[str] = mapped_column(
-        String(32), nullable=False, default="higher_is_better"
-    )
+    direction: Mapped[str] = mapped_column(String(32), nullable=False, default="higher_is_better")
     min_sample_count: Mapped[int] = mapped_column(Integer, nullable=False, default=3)
     description: Mapped[str | None] = mapped_column(Text, nullable=True)
 
@@ -274,9 +272,7 @@ class NormalizedMetric(Base):
 
 class WorkloadProfile(Base):
     __tablename__ = "workload_profile"
-    __table_args__ = (
-        UniqueConstraint("slug", "version", name="uq_workload_profile_slug_version"),
-    )
+    __table_args__ = (UniqueConstraint("slug", "version", name="uq_workload_profile_slug_version"),)
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     slug: Mapped[str] = mapped_column(String(64), nullable=False, index=True)

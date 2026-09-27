@@ -170,9 +170,7 @@ def test_version_linkage_and_foreign_key_integrity(db_session: Session) -> None:
     db_session.add(analysis)
     db_session.commit()
 
-    saved = db_session.scalar(
-        select(AnalysisResult).where(AnalysisResult.pc_build_id == build.id)
-    )
+    saved = db_session.scalar(select(AnalysisResult).where(AnalysisResult.pc_build_id == build.id))
     assert saved is not None
     assert saved.dataset_version == "ds-2026-09-test"
     assert saved.performance_tier == "Strong"
