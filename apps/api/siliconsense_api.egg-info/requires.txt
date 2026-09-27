@@ -1,0 +1,15 @@
+fastapi<1.0.0,>=0.115.0
+uvicorn[standard]<1.0.0,>=0.30.0
+pydantic<3.0.0,>=2.9.0
+pydantic-settings<3.0.0,>=2.5.0
+sqlalchemy<3.0.0,>=2.0.35
+alembic<2.0.0,>=1.13.2
+psycopg[binary]<4.0.0,>=3.2.0
+pandas<3.0.0,>=2.2.2
+numpy<3.0.0,>=2.0.0
+
+[dev]
+pytest<9.0.0,>=8.3.0
+httpx<1.0.0,>=0.27.2
+ruff<1.0.0,>=0.6.8
+mypy<2.0.0,>=1.11.2

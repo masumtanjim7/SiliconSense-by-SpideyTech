@@ -1,0 +1,19 @@
+Metadata-Version: 2.4
+Name: siliconsense-api
+Version: 0.1.0
+Summary: SiliconSense by SpideyTech - FastAPI Backend & Deterministic Scoring Engine
+Requires-Python: >=3.11
+Requires-Dist: fastapi<1.0.0,>=0.115.0
+Requires-Dist: uvicorn[standard]<1.0.0,>=0.30.0
+Requires-Dist: pydantic<3.0.0,>=2.9.0
+Requires-Dist: pydantic-settings<3.0.0,>=2.5.0
+Requires-Dist: sqlalchemy<3.0.0,>=2.0.35
+Requires-Dist: alembic<2.0.0,>=1.13.2
+Requires-Dist: psycopg[binary]<4.0.0,>=3.2.0
+Requires-Dist: pandas<3.0.0,>=2.2.2
+Requires-Dist: numpy<3.0.0,>=2.0.0
+Provides-Extra: dev
+Requires-Dist: pytest<9.0.0,>=8.3.0; extra == "dev"
+Requires-Dist: httpx<1.0.0,>=0.27.2; extra == "dev"
+Requires-Dist: ruff<1.0.0,>=0.6.8; extra == "dev"
+Requires-Dist: mypy<2.0.0,>=1.11.2; extra == "dev"
