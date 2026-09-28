@@ -1,6 +1,7 @@
 from typing import Annotated
 
 from fastapi import APIRouter, Depends, HTTPException, Query, status
+from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.api.schemas import (
@@ -11,8 +12,11 @@ from app.api.schemas import (
     ComponentDetailResponse,
     DatasetVersionMetaResponse,
     PaginatedComponentSearchResponse,
+    SavedBuildSummaryResponse,
     WorkloadProfileSchema,
 )
+from app.core.security import require_authenticated_user
+from app.db.models import AnalysisResult, PCBuild, UserProfile, WorkloadProfile
 from app.db.session import get_db
 from app.domains.catalog.service import (
     get_Active_dataset_version_string,
@@ -103,7 +107,7 @@ def analyze_build_endpoint(
         return build_analysis_response_from_row(db, analysis_row)
     except ValueError as exc:
         raise HTTPException(
-            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            status_code=status.HTTP_422_UNPROCESSABLE_CONTENT,
             detail=str(exc),
         ) from exc
 
@@ -135,6 +139,75 @@ def compare_builds_endpoint(
         return compare_two_builds_for_workload(db, payload)
     except ValueError as exc:
         raise HTTPException(
-            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            status_code=status.HTTP_422_UNPROCESSABLE_CONTENT,
             detail=str(exc),
         ) from exc
+
+
+@router.post(
+    "/builds",
+    response_model=AnalysisResultResponse,
+    status_code=status.HTTP_201_CREATED,
+)
+def save_authenticated_build_endpoint(
+    payload: AnalyzeBuildRequest,
+    user: Annotated[UserProfile, Depends(require_authenticated_user)],
+    db: Annotated[Session, Depends(get_db)],
+) -> AnalysisResultResponse:
+    target_ds = payload.dataset_version or get_Active_dataset_version_string(db)
+    try:
+        analysis_row, _ = run_and_persist_build_analysis(
+            db,
+            workload_slug=payload.workload_slug,
+            component_ids_by_slot=payload.components.to_slot_dict(),
+            dataset_version=target_ds,
+            build_name=payload.build_name,
+            user_id=user.id,
+        )
+        return build_analysis_response_from_row(db, analysis_row)
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_CONTENT,
+            detail=str(exc),
+        ) from exc
+
+
+@router.get("/builds", response_model=list[SavedBuildSummaryResponse])
+def list_authenticated_builds_endpoint(
+    user: Annotated[UserProfile, Depends(require_authenticated_user)],
+    db: Annotated[Session, Depends(get_db)],
+) -> list[SavedBuildSummaryResponse]:
+    builds = db.scalars(
+        select(PCBuild)
+        .where(PCBuild.user_id == user.id, PCBuild.is_saved.is_(True))
+        .order_by(PCBuild.created_at.desc(), PCBuild.id.desc())
+    ).all()
+
+    summaries: list[SavedBuildSummaryResponse] = []
+    for b in builds:
+        profile = db.get(WorkloadProfile, b.workload_profile_id)
+        latest_analysis = db.scalar(
+            select(AnalysisResult)
+            .where(AnalysisResult.pc_build_id == b.id)
+            .order_by(AnalysisResult.analyzed_at.desc(), AnalysisResult.id.desc())
+        )
+        summaries.append(
+            SavedBuildSummaryResponse(
+                build_id=b.id,
+                name=b.name,
+                workload_slug=profile.slug if profile else "unknown",
+                workload_name=profile.name if profile else "Unknown",
+                latest_analysis_id=latest_analysis.id if latest_analysis else None,
+                latest_share_uuid=latest_analysis.share_uuid if latest_analysis else None,
+                latest_performance_score=(
+                    latest_analysis.performance_score_0_100 if latest_analysis else None
+                ),
+                latest_performance_tier=(
+                    latest_analysis.performance_tier if latest_analysis else None
+                ),
+                latest_balance_status=latest_analysis.balance_status if latest_analysis else None,
+                dataset_version=latest_analysis.dataset_version if latest_analysis else None,
+                created_at=b.created_at,
+            )
+        )
+    return summaries

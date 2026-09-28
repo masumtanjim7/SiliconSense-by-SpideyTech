@@ -203,3 +203,31 @@ class CompareBuildsResponse(BaseModel):
     where_a_is_stronger: list[str]
     where_b_is_stronger: list[str]
     contextual_summary: str
+
+
+class SavedBuildSummaryResponse(BaseModel):
+    build_id: int
+    name: str
+    workload_slug: str
+    workload_name: str
+    latest_analysis_id: int | None = None
+    latest_share_uuid: str | None = None
+    latest_performance_score: float | None = None
+    latest_performance_tier: str | None = None
+    latest_balance_status: str | None = None
+    dataset_version: str | None = None
+    created_at: datetime
+
+
+class RecomputeDatasetRequest(BaseModel):
+    dataset_version: str = Field(..., examples=["ds-2026-09-r1"])
+    normalization_version_code: str = Field(default="norm-v1.0", examples=["norm-v1.0"])
+
+
+class RecomputeDatasetResponse(BaseModel):
+    status: str
+    dataset_version: str
+    normalization_version_code: str
+    metrics_processed: int
+    normalized_rows_upserted: int
+    triggered_by_subject: str

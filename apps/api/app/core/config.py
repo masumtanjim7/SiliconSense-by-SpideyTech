@@ -24,6 +24,9 @@ class Settings(BaseSettings):
     API_PORT: int = 8000
     CORS_ORIGINS: list[str] = ["http://localhost:3000"]
 
+    SUPABASE_JWT_SECRET: str = "your-jwt-secret-placeholder"
+    RATE_LIMIT_REQUESTS_PER_MINUTE: int = 120
+
     model_config = SettingsConfigDict(
         env_file=(str(ROOT_ENV_PATH), ".env"),
         env_file_encoding="utf-8",
