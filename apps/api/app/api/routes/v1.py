@@ -211,3 +211,12 @@ def list_authenticated_builds_endpoint(
             )
         )
     return summaries
+from app.domains.admin.service import DataQualityReport, generate_data_quality_report
+
+@router.get("/meta/data-quality", response_model=DataQualityReport)
+def get_data_quality_endpoint(
+    db: Annotated[Session, Depends(get_db)],
+    dataset_version: Annotated[str | None, Query(max_length=64)] = None,
+) -> DataQualityReport:
+    target_ds = dataset_version or get_Active_dataset_version_string(db)
+    return generate_data_quality_report(db, target_ds)
