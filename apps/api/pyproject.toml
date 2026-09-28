@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "siliconsense-api"
 version = "0.1.0"
-description = "SiliconSense by SpideyTech - FastAPI Backend & Deterministic Scoring Engine"
+description = "SiliconSense by SpideyTech — FastAPI Backend & Deterministic Scoring Engine"
 requires-python = ">=3.11"
 dependencies = [
     "fastapi>=0.115.0,<1.0.0",
@@ -35,6 +35,9 @@ include = ["app*"]
 testpaths = ["tests"]
 pythonpath = ["."]
 addopts = "-q --tb=short"
+filterwarnings = [
+    "ignore:Using httpx with starlette.testclient is deprecated:DeprecationWarning",
+]
 
 [tool.ruff]
 line-length = 100
