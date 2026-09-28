@@ -53,8 +53,8 @@ export default function CompareBuildsPage() {
   const [catalog, setCatalog] = useState<ComponentSummaryItem[]>([]);
   const [workloadSlug, setWorkloadSlug] = useState<string>("gaming");
 
-  const [buildAName, setBuildAName] = useState<string>("Build A • High-End Rig");
-  const [buildBName, setBuildBName] = useState<string>("Build B • Mid-Range Rig");
+  const [buildAName, setBuildAName] = useState<string>("Build A â€¢ High-End Rig");
+  const [buildBName, setBuildBName] = useState<string>("Build B â€¢ Mid-Range Rig");
 
   const [buildASlots, setBuildASlots] = useState<BuildComponentsSelection | null>(
     null
@@ -142,9 +142,9 @@ export default function CompareBuildsPage() {
 
         await runComparison(
           initialWorkload,
-          "Build A • High-End Rig",
+          "Build A â€¢ High-End Rig",
           defaultA,
-          "Build B • Mid-Range Rig",
+          "Build B â€¢ Mid-Range Rig",
           defaultB
         );
       }
@@ -404,7 +404,7 @@ export default function CompareBuildsPage() {
             <GlassPanel className="p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div className="space-y-1">
                 <div className="text-xs font-mono uppercase text-brand-cyan">
-                  Workload Context: {comparison.workload_name} • Dataset{" "}
+                  Workload Context: {comparison.workload_name} â€¢ Dataset{" "}
                   {comparison.dataset_version}
                 </div>
                 <h2 className="text-xl md:text-2xl font-bold text-text-strong">
@@ -513,7 +513,7 @@ export default function CompareBuildsPage() {
                   Aligned Metric-Level Deltas ({comparison.workload_name})
                 </h3>
                 <span className="text-xs font-mono text-text-muted">
-                  Normalized 0–100 Scale
+                  Normalized 0â€“100 Scale
                 </span>
               </div>
 
@@ -566,7 +566,7 @@ export default function CompareBuildsPage() {
                 </div>
                 {comparison.where_a_is_stronger.length === 0 ? (
                   <p className="text-xs sm:text-sm text-text-muted">
-                    {comparison.build_a.build_name} does not hold a >1.0 pt lead on
+                    {comparison.build_a.build_name} does not hold a &gt;1.0 pt lead on
                     any individual {comparison.workload_name} metric.
                   </p>
                 ) : (
@@ -591,7 +591,7 @@ export default function CompareBuildsPage() {
                 </div>
                 {comparison.where_b_is_stronger.length === 0 ? (
                   <p className="text-xs sm:text-sm text-text-muted">
-                    {comparison.build_b.build_name} does not hold a >1.0 pt lead on
+                    {comparison.build_b.build_name} does not hold a &gt;1.0 pt lead on
                     any individual {comparison.workload_name} metric.
                   </p>
                 ) : (
@@ -629,7 +629,7 @@ export default function CompareBuildsPage() {
                       <GlassPanel variant="solid" className="p-5 flex items-center gap-2.5 text-xs sm:text-sm text-text-muted">
                         <Scale className="h-4 w-4 text-brand-cyan shrink-0" />
                         <span>
-                          Balanced for {b.workload_name} — no urgent single-part
+                          Balanced for {b.workload_name} â€” no urgent single-part
                           upgrade needed.
                         </span>
                       </GlassPanel>
