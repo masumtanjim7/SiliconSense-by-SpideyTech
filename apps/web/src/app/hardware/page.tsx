@@ -4,7 +4,6 @@ import React, { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import {
   Activity,
-  Cpu,
   Database,
   GitCompare,
   Layers,
@@ -133,7 +132,7 @@ export default function HardwareExplorerPage() {
     <AppShell>
       <div className="space-y-8 pb-16">
         <SectionHeader
-          eyebrow="Prompt 17 • Transparent Benchmark Research Surface"
+          eyebrow="Prompt 17 â€¢ Transparent Benchmark Research Surface"
           title="Hardware Benchmark & Specification Explorer"
           description="Inspect canonical CPUs, GPUs, memory kits, and storage drives. We separate curated hardware specifications from empirical benchmark evidence and never fabricate missing scores."
           rightElement={
@@ -267,7 +266,7 @@ export default function HardwareExplorerPage() {
                           </span>
                         </div>
                         <div className="text-xs text-text-muted">
-                          {item.generation ? `${item.generation} • ` : ""}
+                          {item.generation ? `${item.generation} â€¢ ` : ""}
                           {formatHardwareSpecLine(item)}
                         </div>
                       </div>
@@ -323,7 +322,7 @@ export default function HardwareExplorerPage() {
                       <div className="text-xs text-text-muted">
                         {formatHardwareSpecLine(selectedDetail)}
                         {selectedDetail.release_date
-                          ? ` • Released ${selectedDetail.release_date}`
+                          ? ` â€¢ Released ${selectedDetail.release_date}`
                           : ""}
                       </div>
                     </div>
@@ -339,7 +338,7 @@ export default function HardwareExplorerPage() {
                           <span>Normalized Benchmark Evidence</span>
                         </h3>
                         <span className="text-[11px] font-mono text-text-muted">
-                          0–100 Percentile Scale
+                          0â€“100 Percentile Scale
                         </span>
                       </div>
 
