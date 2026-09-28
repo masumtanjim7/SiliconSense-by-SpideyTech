@@ -1,0 +1,32 @@
+Step 1: Start PostgreSQL Database (If using Docker)
+If your PostgreSQL database runs via Docker container, make sure your container is up:
+
+PowerShell
+cd "E:\GitHub\SiliconSense by SpideyTech"
+docker compose up -d
+
+
+
+Step 2: Start the FastAPI Backend
+Open your first PowerShell window and run:
+
+PowerShell
+cd "E:\GitHub\SiliconSense by SpideyTech\apps\api"
+.\.venv\Scripts\Activate.ps1
+uvicorn app.main:app --reload --port 8000
+
+
+
+Step 3: Start the Next.js Frontend
+Open your second PowerShell window and run:
+
+PowerShell
+cd "E:\GitHub\SiliconSense by SpideyTech\apps\web"
+npm run dev
+
+
+
+Step 4: Access Your App
+Frontend UI: Open http://localhost:3000 in your browser.
+
+Interactive API Documentation: Open http://localhost:8000/docs to test any backend route directly.
