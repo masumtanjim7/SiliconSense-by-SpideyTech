@@ -1,0 +1,60 @@
+{
+    "info": {
+        "name": "SiliconSense by SpideyTech API v1",
+        "description": "Postman Collection for SiliconSense MVP API endpoints (uses illustrative/fake IDs).",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Health Check",
+            "request": {
+                "method": "GET",
+                "url": "{{baseUrl}}/health"
+            }
+        },
+        {
+            "name": "Search Hardware Components",
+            "request": {
+                "method": "GET",
+                "url": "{{baseUrl}}/v1/components/search?component_type=GPU&page=1&page_size=20"
+            }
+        },
+        {
+            "name": "List Active Workloads",
+            "request": {
+                "method": "GET",
+                "url": "{{baseUrl}}/v1/workloads"
+            }
+        },
+        {
+            "name": "Get Dataset & Scoring Version Metadata",
+            "request": {
+                "method": "GET",
+                "url": "{{baseUrl}}/v1/meta/dataset-version"
+            }
+        },
+        {
+            "name": "Analyze PC Build",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "url": "{{baseUrl}}/v1/builds/analyze",
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"build_name\": \"Demo Gaming Rig\",\n  \"workload_slug\": \"gaming\",\n  \"components\": {\n    \"CPU\": 1,\n    \"GPU\": 6,\n    \"RAM\": 9,\n    \"STORAGE\": 11\n  }\n}"
+                }
+            }
+        }
+    ],
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "http://localhost:8000"
+        }
+    ]
+}
