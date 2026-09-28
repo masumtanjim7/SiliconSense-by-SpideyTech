@@ -18,6 +18,15 @@ import {
   UpgradeCard,
   WorkloadTabs,
 } from "@/components/ui/interactive";
+import {
+  ComparisonBarChart,
+  ContributionChart,
+  PercentilePositionBar,
+} from "@/components/charts/RechartsLayer";
+import {
+  DEMO_COMPARISON_FIXTURE,
+  DEMO_CONTRIBUTION_FIXTURE,
+} from "@/components/charts/chart-utils";
 
 const DEMO_WORKLOADS = [
   { slug: "gaming", name: "Gaming" },
@@ -59,9 +68,9 @@ export default function DesignSystemShowcasePage() {
     <AppShell>
       <div className="space-y-12">
         <SectionHeader
-          eyebrow="Prompt 12 • Hardware Laboratory UI Primitives"
+          eyebrow="Prompts 12 & 18 • Hardware Laboratory UI & Recharts Layer"
           title="SiliconSense Design System Showcase"
-          description="All values on this page are illustrative DEMO fixtures used to verify glassmorphic hierarchy, contrast, and reduced-motion accessibility."
+          description="All values on this page are illustrative DEMO fixtures used to verify glassmorphic hierarchy, Recharts storytelling, contrast, and reduced-motion accessibility."
           rightElement={<StatusBadge label="DEMO FIXTURE VALUES" tone="primary" />}
         />
 
@@ -102,6 +111,32 @@ export default function DesignSystemShowcasePage() {
               />
             </div>
           </GlassPanel>
+        </div>
+
+        <div className="space-y-6">
+          <SectionHeader
+            eyebrow="Prompt 18 • Recharts Data Storytelling"
+            title="Contribution, Comparison & Percentile Visualizations"
+          />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <ContributionChart
+              workloadName="Gaming (Demo)"
+              items={DEMO_CONTRIBUTION_FIXTURE}
+            />
+            <ComparisonBarChart
+              workloadName="Gaming (Demo)"
+              buildAName="Demo Build A"
+              buildBName="Demo Build B"
+              items={DEMO_COMPARISON_FIXTURE}
+            />
+          </div>
+          <PercentilePositionBar
+            componentName="NVIDIA GeForce RTX 4070 SUPER (Demo)"
+            metricLabel="Blender Cycles OptiX Render"
+            percentile={62.5}
+            sampleCount={85}
+            datasetVersion="ds-2026-09-demo"
+          />
         </div>
 
         <div className="space-y-4">
