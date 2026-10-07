@@ -54,4 +54,4 @@ Raw data is immutable. Cleaned/normalized data is derived and versioned.
 2. State files changed.
 3. State migrations/env vars introduced.
 4. State assumptions.
-5. State what remains intentionally out of scope.
+
