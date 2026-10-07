@@ -51,5 +51,3 @@ Raw data is immutable. Cleaned/normalized data is derived and versioned.
 
 ## Quality gate before completing any task
 1. Run relevant tests/lint/typecheck.
-2. State files changed.
-
