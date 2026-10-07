@@ -1,4 +1,4 @@
-# SiliconSense by SpideyTech (PC Strength & Balance Analyzer) — Agent Instructions
+# SiliconSense by SpideyTech (PC Strength & Balance Analyzer) — Instructions
 
 ## Source of truth
 Before modifying architecture, scoring, data ingestion or UI, read:
