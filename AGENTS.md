@@ -49,4 +49,3 @@ Raw data is immutable. Cleaned/normalized data is derived and versioned.
 - Idempotent ingestion jobs.
 - Structured logs, correlation/request IDs where practical.
 
-## Quality gate before completing any task
