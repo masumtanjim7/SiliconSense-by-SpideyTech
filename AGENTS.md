@@ -50,4 +50,3 @@ Raw data is immutable. Cleaned/normalized data is derived and versioned.
 - Structured logs, correlation/request IDs where practical.
 
 ## Quality gate before completing any task
-1. Run relevant tests/lint/typecheck.
