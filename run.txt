@@ -30,3 +30,5 @@ Step 4: Access Your App
 Frontend UI: Open http://localhost:3000 in your browser.
 
 Interactive API Documentation: Open http://localhost:8000/docs to test any backend route directly.
+
+Step 5: 
